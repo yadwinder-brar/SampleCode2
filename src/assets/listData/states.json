@@ -1,0 +1,23 @@
+[
+    {
+        "state":"california",
+        "id":1,
+        "country":"USA"
+    },
+    {
+        "state":"texas",
+        "id":2,
+        "country":"USA"
+        
+    },
+    {
+        "state":"florida",
+        "id":3,
+        "country":"USA"
+    },
+    {
+        "state":"washington",
+        "id":4,
+        "country":"USA"
+    }
+]

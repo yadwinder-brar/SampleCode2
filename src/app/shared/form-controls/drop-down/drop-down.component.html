@@ -1,0 +1,7 @@
+<mat-form-field class="formControl" [formGroup]="form">
+  <mat-select [formControlName]="controlName" disableOptionCentering>
+    <mat-option *ngFor="let data of ddlOptions" [value]="data.value">
+      {{data.label}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

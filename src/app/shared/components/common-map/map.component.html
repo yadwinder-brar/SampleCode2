@@ -1,0 +1,4 @@
+<agm-map [latitude]="lat" [longitude]="lng" [fullscreenControl]="true" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="true"  [disableDefaultUI]="true">
+    <agm-marker *ngFor="let m of locations || []; let i = index" [latitude]="m.lat" [longitude]="m.long" [iconUrl]="$any(icon)">
+    </agm-marker>
+</agm-map>

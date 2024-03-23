@@ -1,0 +1,27 @@
+<div class="headerSection">
+    <mat-toolbar>
+        <div class="LogoWrapper">
+            <h2>ZenduForms</h2>
+        </div>
+
+        <div class="mainNavigation">
+            <div class="toggleBtn" (click)="onClick()" [ngClass]=" dynamicClass ? 'showMenu' : 'hideMenu'">
+                <mat-icon class="menuIcon">menu</mat-icon>
+                <mat-icon class="closeIcon">close</mat-icon>
+            </div>
+            <ul [ngClass]=" dynamicClass ? 'showMenu' : 'hideMenu'">
+                <li><img src="../assets/images/icon/form.svg" alt="Submissions">Forms</li>
+                <li><img src="../assets/images/icon/customer.svg" alt="Submissions">Customers</li>
+                <li class="active"><img src="../assets/images/icon/submission.svg" alt="Submissions">Submissions</li>
+                <li><img src="../assets/images/icon/history.svg" alt="History">History</li>
+                <li><img src="../assets/images/icon/reports.svg" alt="Reports">Reports</li>
+                <li><img src="../assets/images/icon/reports.svg" alt="Workflow">Workflow</li>
+            </ul>
+        </div>
+
+        <div class="signInWrapper">
+            <span><img src="../assets/images/icon/alert.svg" alt="Alert" title="Alert"></span>
+            <span><img src="../assets/images/icon/login.svg" alt="Login" title="Login"></span>
+        </div>
+    </mat-toolbar>
+</div>

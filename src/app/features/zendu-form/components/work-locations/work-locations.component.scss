@@ -1,0 +1,75 @@
+@import '../../../../../assets/css/color-variable';
+@import '../../../../../assets/fonts/stylesheet.css';
+@import '../../../../../assets/css/media-queries';
+.workLocationWrapper {
+    display: flex;
+    border: 1px solid #B8B9BC;
+    border-radius: 4px;
+    padding: 15px;
+    min-width: 450px;
+    @include for-tablet {
+        grid-gap: 15px;
+    }
+    .workLocationContant {
+        flex: 1 1 auto;
+        h3 {
+            font-style: normal;
+            font-size: 16px;
+            font-family: 'Roboto-Bold';
+            color: $light-black-color;
+            margin: 0;
+        }
+        p {
+            font-family: 'Roboto-Regular';
+            font-style: normal;
+            font-size: 14px;
+            color: $light-black-color;
+            margin-bottom: 0;
+            line-height: 24px;
+            span {
+                color: $gray-color;
+                margin-right: 10px;
+                ;
+            }
+        }
+    }
+    .statusBtn {
+        padding: 5px 15px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        span {
+            height: 10px;
+            width: 10px;
+            border-radius: 5px;
+            margin-right: 6px;
+        }
+        &.uncomplete {
+            // background-color: $danger-transparent-color;
+            color: $danger-color;
+            border: 1px solid $danger-color;
+            border-radius: 4px;
+            span {
+                background-color: $danger-color;
+            }
+        }
+        &.lowRisk {
+            background-color: $success-transparent-color;
+            color: $success-color;
+            border: 1px solid $success-color;
+            border-radius: 4px;
+            span {
+                background-color: $success-color;
+            }
+        }
+        &.needsReview {
+            background-color: $light-gray-color;
+            color: $gray-color;
+            border: 1px solid $gray-color;
+            border-radius: 4px;
+            span {
+                background-color: $gray-color;
+            }
+        }
+    }
+}

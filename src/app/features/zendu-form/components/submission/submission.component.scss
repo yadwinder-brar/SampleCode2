@@ -1,0 +1,154 @@
+
+@import '../../../../../assets/css/color-variable';
+@import '../../../../../assets/fonts/stylesheet.css';
+@import '../../../../../assets/css/media-queries';
+
+.contentWrapper {
+    padding: 72px 40px 0px;
+    height: 100vh;
+    overflow-y: auto;
+    @include for-landscape-mobile {
+        padding: 64px 15px 20px;
+        grid-gap: 30px;
+    }
+    .mainCaption {
+        font-family: 'Roboto-Bold';
+        font-style: normal;
+        font-size: 32px;
+        margin: 36px 0 22px;
+        @include for-landscape-mobile {
+            margin: 20px 0;
+        }
+    }
+}
+
+.searchOutputWrapper {
+    margin-top: 36px;
+    display: flex;
+    grid-gap: 40px;
+    flex-flow: wrap;
+    @include for-tablet {
+        flex-direction: column-reverse;
+    }
+    .locationWrapper {
+        perfect-scrollbar{
+            ::ng-deep{
+                .ps-content{
+                    height: calc(100vh - 250px);
+                }
+            }
+        }
+        &.noDatafound{
+            width: 100%;
+            display: flex;
+            font-weight: 500;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background-color: #faf9f9;
+        }
+        app-work-locations {
+            grid-gap: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .mapWrapper {
+        flex: 1 1 auto;
+        margin-right: -40px;
+        @include for-tablet {
+            margin-right: 0px;
+        }
+        agm-map {
+            display: flex;
+            width: 100%;
+            height: calc(100vh - 244px);
+        }
+    }
+}
+
+.filterWrapper {
+    display: flex;
+    @include for-min-desktop {
+        align-items: flex-start;
+    }
+    @include for-landscape-mobile {
+        flex-flow: column-reverse;
+        grid-gap: 30px;
+    }
+    .selectFilter {
+        flex: 1 1 auto;
+        grid-gap: 40px;
+        display: flex;
+        padding-right: 40px;
+        @include for-min-desktop {
+            flex-wrap: wrap;
+            grid-gap: 15px;
+            padding-right: 20px;
+        }
+        @include for-landscape-mobile {
+            padding-right: 0px;
+        }
+        app-input {
+            width: 100%;
+            max-width: 332px;
+            @include for-landscape-mobile {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        app-drop-down,
+        app-date-picker {
+            width: 100%;
+            max-width: 209px;
+            @include for-landscape-mobile {
+                width: 48.6%;
+                max-width: 100%;
+            }
+            @include for-sm-mobile {
+                width: 100%;
+            }
+        }
+    }
+    
+.mapList {
+    display: flex;
+    align-items: center;
+    grid-gap: 25px;
+    font-family: 'Roboto-Medium';
+    @include for-landscape-mobile {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    mat-button-toggle {
+        min-width: 80px;
+        height: 44px;
+        color: $light-black-color;
+        font-family: 'Roboto-Regular';
+        font-size: 16px;
+        &.mat-button-toggle-checked {
+            &::ng-deep {
+                button {
+                    background-color: $tertiary-color;
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+    .exportIcon {
+        display: flex;
+        align-items: center;
+        grid-gap: 10px;
+        cursor: pointer;
+        font-family: 'Roboto-Medium';
+        color: $tertiary-color;
+        font-size: 16px;
+    }
+}
+}
+.listData {
+    flex: 1;
+    margin: 32px 0;
+    
+}
+

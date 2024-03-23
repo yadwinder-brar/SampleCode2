@@ -1,0 +1,10 @@
+<div class="workLocationWrapper" *ngFor="let data of listData">
+    <div class="workLocationContant">
+        <h3>Work Flow: {{data.workFlow}}</h3>
+        <p><span>From:</span>{{data.from}}</p>
+        <p><span>To:</span>{{data.to}}</p>
+        <p><span>Due Date:</span>{{data.dueDate}}</p>
+        <p><span>state:</span>{{data.state}}</p>
+    </div>
+    <div class="statusBtn" [ngClass]="{'lowRisk': data.status === 'low risk', 'uncomplete': data.status === 'uncomplete', 'needsReview':data.status === 'needs review'}" ><span></span> {{data.status}}</div>
+</div>

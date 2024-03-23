@@ -1,0 +1,56 @@
+<app-header></app-header>
+<div class="contentWrapper">
+    <h1 class="mainCaption">Submissions</h1>
+    <div class="filterWrapper">
+        <div class="selectFilter">
+            <!-- <input
+    placeholder="search for location"
+    autocorrect="off"
+    autocapitalize="off"
+    spellcheck="off"
+    type="text"
+    class="form-control"
+    #search
+    
+  /> -->
+            <app-input controlName="searchText" [form]="formGroup" placeholder="search ..."></app-input>
+            <app-drop-down [ddlOptions]="formType" controlName="formType" [form]="formGroup">
+            </app-drop-down>
+            <app-drop-down [ddlOptions]="states" [controlName]="'state'" [form]="formGroup"></app-drop-down>
+            <app-date-picker controlName="dueDate" [form]="formGroup"></app-date-picker>
+        </div>
+        <div class="mapList">
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [value]="toggleView" class="listGrid">
+                <mat-button-toggle (change)="toggle('map')" value="map">Map</mat-button-toggle>
+                <mat-button-toggle (change)="toggle('list')" value="list">List</mat-button-toggle>
+            </mat-button-toggle-group>
+            <div class="exportIcon"><img [src]="exportIcon" alt="paper-download">Export</div>
+        </div>
+    </div>
+    <div>
+        <div class="searchOutputWrapper" *ngIf="toggleView === 'map'">
+            <div class="locationWrapper">
+                <perfect-scrollbar>
+                    <app-work-locations
+                        [listData]="submissionsList | search: formGroup.controls['searchText'].value : formGroup.controls['formType'].value : formGroup.controls['state'].value : formGroup.controls['dueDate'].value">
+                    </app-work-locations>
+                    <div class="locationWrapper noDatafound"
+                        *ngIf="!(submissionsList | search: formGroup.controls['searchText'].value : formGroup.controls['formType'].value : formGroup.controls['state'].value : formGroup.controls['dueDate'].value).length">
+                        No Data found!
+                    </div>
+                </perfect-scrollbar>
+
+            </div>
+            <div class="mapWrapper">
+                <app-map
+                    [locations]="submissionsList | search: formGroup.controls['searchText'].value : formGroup.controls['formType'].value : formGroup.controls['state'].value : formGroup.controls['dueDate'].value">
+                </app-map>
+            </div>
+        </div>
+        <div class="listData" *ngIf="toggleView !== 'map'">
+            <app-table
+                [tableData]="submissionsList | search: formGroup.controls['searchText'].value : formGroup.controls['formType'].value : formGroup.controls['state'].value : formGroup.controls['dueDate'].value">
+            </app-table>
+        </div>
+    </div>
+</div>

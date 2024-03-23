@@ -1,0 +1,126 @@
+@import '../../../../assets/css/color-variable';
+@import '../../../../assets/fonts/stylesheet.css';
+@import '../../../../assets/css/media-queries';
+
+.headerSection {
+    background-color: $tertiary-color;
+    padding: 4px 16px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    @include for-tablet {
+        padding: 0;
+    }
+    @include for-landscape-mobile {
+        overflow: hidden;
+    }
+    .toggleBtn {
+        justify-content: flex-end;
+        padding-right: 15px;
+        color: #fff;
+        display: none;
+        position: relative;
+        @include for-tablet {
+            display: flex;
+        }
+        @include for-tablet {
+            &.hideMenu {
+                .closeIcon {
+                    display: none;
+                }
+            }
+            &.showMenu {
+                .menuIcon {
+                    display: none;
+                }
+            }
+        }
+    }
+    mat-toolbar {
+        background-color: $tertiary-color;
+        h2 {
+            font-family: 'Roboto-Bold';
+            font-style: normal;
+            font-size: 32px;
+            color: $secondary-color;
+            transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            @include for-landscape-Tab {
+                font-size: 22px;
+            }
+        }
+        .mainNavigation {
+            flex: 1 1 auto;
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                @include for-tablet {
+                    &.hideMenu {
+                        display: none;
+                    }
+                    &.showMenu {
+                        display: flex;
+                        position: fixed;
+                        top: 64px;
+                        flex-flow: column;
+                        background-color: $tertiary-color;
+                        width: 100%;
+                        right: 0;
+                        height: calc(100vh - 64px);
+                        overflow-y: scroll;
+                        z-index: 999;
+                        border-top: 1px solid $secondary-color;
+                        justify-content: flex-start;
+                        @include for-sm-mobile {
+                            top: 56px;
+                            height: calc(100vh - 56px);
+                        }
+                        li {
+                            width: 100%;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                        }
+                    }
+                }
+                li {
+                    padding: 20px 33px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    grid-gap: 10px;
+                    font-family: 'Roboto-Medium';
+                    font-size: 18px;
+                    color: $secondary-color;
+                    transition: all 0.5s ease;
+                    -webkit-transition: all 0.5s ease;
+                    -moz-transition: all 0.5s ease;
+                    @include for-sm-desktop {
+                        padding: 20px 15px;
+                    }
+                    @include for-landscape-Tab {
+                        font-size: 14px;
+                    }
+                    &:hover,
+                    &.active {
+                        background-color: $active-color;
+                    }
+                }
+            }
+        }
+        .signInWrapper {
+            display: flex;
+            align-items: center;
+            grid-gap: 22px;
+            transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            span {
+                cursor: pointer;
+            }
+        }
+    }
+}

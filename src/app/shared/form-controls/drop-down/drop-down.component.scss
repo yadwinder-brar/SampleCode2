@@ -1,0 +1,56 @@
+@import '../../../../assets/css/color-variable';
+@import '../../../../assets/fonts/stylesheet.css';
+@import '../../../../assets/css/media-queries';
+.formControl {
+    background: #FFFFFF;
+    border: 1px solid #B8B9BC;
+    border-radius: 4px;
+    padding: 13px 16px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 209px;
+    position: relative;
+    min-width: 150px;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    @include for-landscape-mobile {
+        max-width: 100%;
+    }
+    &::ng-deep {
+        .mat-form-field-wrapper {
+            padding-bottom: 0;
+            flex: 1 1 auto;
+            .mat-form-field-underline {
+                display: none;
+            }
+            .mat-form-field-infix {
+                padding: 0;
+                border: none;
+                width: 100%;
+                .mat-form-field-label-wrapper {
+                    top: 0;
+                    padding-top: 0;
+                    .mat-form-field-label {
+                        top: 0;
+                    }
+                }
+                .mat-select-arrow-wrapper {
+                    visibility: hidden;
+                }
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    top: 8px;
+                    right: -10px;
+                    background-image: url(../../../../assets/images/icon/arrow-down.svg);
+                    background-repeat: no-repeat;
+                    border: none;
+                    background-size: 13px;
+                }
+            }
+        }
+    }
+}
